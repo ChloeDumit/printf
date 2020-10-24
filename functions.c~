@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <string.h>
+#include <unistd.h>
+#include "holberton.h"
+/**
+ *print_char - prints char
+ *@list: list
+ *Return: write
+ */
+void print_char(va_list list)
+{
+	_put_char(va_arg(list, int));
+}
+
+/**
+ *print_string - prints string
+ *@list: list
+ *Return: write
+ */
+void print_string(va_list list)
+{
+	int i;
+	char *str = va_arg(list, char*);
+	if(str != NULL)
+
+	for(i = 0; str[i] != '\0'; i++)
+	{
+		_put_char(str[i]);
+	}
+
+	return (i);
+}
+
+/**
+ *print_percent - prints percent
+ *@list: list
+ *Return: write
+ */
+void print_percent(__attribute__((unused)) va_list list)
+{
+	_put_char('%');
+	return(1);
+}
