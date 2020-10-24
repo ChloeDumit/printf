@@ -5,7 +5,7 @@ typedef struct sfun
 {
 	char *test;
 	void (*printer)();
-} sf;
+}sf;
 
 void print_char(va_list list);
 void print_string(va_list list);

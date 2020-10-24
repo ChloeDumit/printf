@@ -8,7 +8,7 @@
  *print_char - prints char
  *@list: list
  *Return: write
- */
+ * */
 void print_char(va_list list)
 {
 	_put_char(va_arg(list, int));
