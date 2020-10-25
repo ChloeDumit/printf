@@ -41,7 +41,9 @@ void print_percent(__attribute__((unused)) va_list list)
 	_put_char('%');
 }
 /**
- *
+ *_strlen - get lenght
+ *@s: s
+ *Return: lenght
  */
 int _strlen(char *s)
 {
@@ -54,6 +56,9 @@ int _strlen(char *s)
 }
 
 /**
+ *print_integer - print integer
+ *@list: list
+ *
  */
 void print_integer(va_list list)
 {
@@ -74,7 +79,12 @@ void print_integer(va_list list)
 		n /= 10;
 	}
 }
-
+/**
+ *convert - convert
+ *@num: num
+ *@base: base
+ *Return: number 
+ */
 char *convert(unsigned int num, int base) 
 { 
 	static char Representation[]= "0123456789ABCDEF";

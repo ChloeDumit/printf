@@ -5,7 +5,9 @@
 #include <stdarg.h>
 #include "holberton.h"
 /**
- *
+ *_printf - prints format
+ *@format: format
+ *Return: print
  */
 int _printf(const char *format, ...)
 {
