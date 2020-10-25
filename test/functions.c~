@@ -25,9 +25,9 @@ void print_string(va_list list)
 {
 	int n = 0;
 	char *str;
-	str = va_arg(list, char*);
+		str = va_arg(list, char*);
 	n = _strlen(str);
-	write(1, str, n);
+		write(1, str, n);
 
 }
 
@@ -36,7 +36,7 @@ void print_string(va_list list)
  *@list: list
  *Return: write
  */
-void print_percent(__attribute__((unused)) va_list list)
+void print_percent(__atributte__((unused)) va_list list)
 {
 	_put_char('%');
 }

@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 	sf types [] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_percent},
 		{"i", print_integer},
 		{"d", print_integer},
 		{NULL, NULL}
@@ -31,30 +30,30 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			while (types[j].test != NULL)
+		{
+			if (format[i + 1] == types[j].test[0])
 			{
-				if (format[i + 1] == types[j].test[0])
-				{
-					flag = 1;
-					types[j].printer(list);
-				}
-				j++;
+				flag = 1;
+				types[j].printer(list);
 			}
+			j++;
+		}
 
 		}
-		if (flag == 1)
+			if (flag == 1)
 
 		{
-			if (format[i + 1] == '\0' || format[i + 2] == '\0')
-				break;
-			i += 2;
-		}
-		else
-		{
-			write(1, &format[i], 1);
-			i++;
-		}
-		j = 0;
-		count++;
+				if (format[i + 1] == '\0' || format[i + 2] == '\0')
+					break;
+				i += 2;
+			}
+			else
+			{
+				write(1, &format[i], 1);
+		i++;
+			}
+			j = 0;
+			count++;
 
 	}
 	va_end(list);
