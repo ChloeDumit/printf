@@ -9,13 +9,13 @@
 typedef struct sfun
 {
 	char *test;
-	void (*printer)();
+	int (*printer)();
 }sf;
 
-void print_char(va_list list);
-void print_string(va_list list);
-void print_integer(va_list list);
-void print_percent(va_list list);
+int print_char(va_list list);
+int print_string(va_list list);
+int print_integer(va_list list);
+int print_percent(va_list list);
 int _put_char(char c);
 int _printf(const char *format, ...);
 int _strlen(char *s);

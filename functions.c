@@ -9,11 +9,12 @@
  *@list: list
  *Return: write
  * */
-void print_char(va_list list)
+int print_char(va_list list)
 {
 	char c;
 	c = va_arg(list, int);
-	write(1, &c, 1);
+write(1, &c, 1);
+ return (1);
 }
 
 /**
@@ -21,14 +22,18 @@ void print_char(va_list list)
  *@list: list
  *Return: write
  */
-void print_string(va_list list)
+int print_string(va_list list)
 {
 	int n = 0;
 	char *str;
 	str = va_arg(list, char*);
+	if (str == NULL)
+	  {
+	    str = "(null)";
+	  }	
 	n = _strlen(str);
 	write(1, str, n);
-
+	return (n);
 }
 
 /**
@@ -36,9 +41,10 @@ void print_string(va_list list)
  *@list: list
  *Return: write
  */
-void print_percent(__attribute__((unused)) va_list list)
+int print_percent(__attribute__((unused)) va_list list)
 {
 	_put_char('%');
+	return (1);
 }
 /**
  *_strlen - get lenght
@@ -60,7 +66,7 @@ int _strlen(char *s)
  *@list: list
  *
  */
-void print_integer(va_list list)
+int print_integer(va_list list)
 {
 	int n = va_arg(list, int);
 	if (n < 0)
@@ -71,13 +77,14 @@ void print_integer(va_list list)
 	else if (n == 0)
 	{
 		_put_char('0');
-		return;
+		return(0);
 	}
 	while (n != 0)
 	{
 		_put_char ('0' + (n%10));
 		n /= 10;
 	}
+	return(n);
 }
 /**
  *convert - convert

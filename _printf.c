@@ -25,8 +25,17 @@ int _printf(const char *format, ...)
 	int j = 0;
 	int flag = 0;
 	int count = 0;
-	va_start(list, format);
 
+	va_start(list, format);	
+	if (!format)
+	  {
+	    return (-1);
+	  }
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	  {
+	    return (-1);
+	  }
+	
 	while (format[i] != '\0' && format)
 	{
 		flag = 0;
@@ -37,8 +46,9 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == types[j].test[0])
 				{
 					flag = 1;
-					types[j].printer(list);
-				}
+					count += types[j].printer(list);
+					break;				
+}
 				j++;
 			}
 
@@ -47,17 +57,18 @@ int _printf(const char *format, ...)
 
 		{
 			if (format[i + 1] == '\0' || format[i + 2] == '\0')
-				break;
+				
+			  return(count);
 			i += 2;
 		}
 		else
 		{
 			write(1, &format[i], 1);
 			i++;
+			count++;		
 		}
 		j = 0;
-		count++;
-
+	       
 	}
 	va_end(list);
 	return(count);
