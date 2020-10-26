@@ -11,7 +11,7 @@
  */
 int _printf(const char *format, ...)
 {
-	sf types [] = {
+	sf types[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
@@ -26,16 +26,15 @@ int _printf(const char *format, ...)
 	int flag = 0;
 	int count = 0;
 
-	va_start(list, format);	
+	va_start(list, format);
 	if (!format)
-	  {
-	    return (-1);
-	  }
+	{
+		return (-1);
+	}
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-	  {
-	    return (-1);
-	  }
-	
+	{
+		return (-1);
+	}
 	while (format[i] != '\0' && format)
 	{
 		flag = 0;
@@ -47,29 +46,27 @@ int _printf(const char *format, ...)
 				{
 					flag = 1;
 					count += types[j].printer(list);
-					break;				
-}
+					break;
+				}
 				j++;
 			}
-
 		}
+
 		if (flag == 1)
 
 		{
 			if (format[i + 1] == '\0' || format[i + 2] == '\0')
-				
-			  return(count);
+				return (count);
 			i += 2;
 		}
 		else
 		{
 			write(1, &format[i], 1);
 			i++;
-			count++;		
+			count++;
 		}
 		j = 0;
-	       
 	}
 	va_end(list);
-	return(count);
+	return (count);
 }
