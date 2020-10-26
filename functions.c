@@ -79,12 +79,12 @@ int print_integer(va_list list)
   int i, div, len;
   unsigned int num;
 
-  i = va_arg(valist, int);
+  i = va_arg(list, int);
   div = 1;
   len = 0;
   if (i < 0)
     {
-      len += _putchar('-');
+      len += _put_char('-');
       num = i * -1;
     }
   else
@@ -99,9 +99,10 @@ int print_integer(va_list list)
 
   for (; div != 0;)
     {
-      len += _putchar('0' + (num / div));
+      len += _put_char('0' + (num / div));
       num %= div;
       div /= 10;
     }
 
   return (len);
+}
