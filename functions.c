@@ -97,15 +97,15 @@ int print_integer(va_list list)
 	if (n > 0)
 
 	{
-		for (divisor = 1; divisor <= number; divisor *= 10)
+		for (divisor = 1; divisor <= n; divisor *= 10)
 
 			;
 
 			while (divisor > 1)
 			{
 			divisor /= 10;
-			_put_char((number / divisor) + '0');
-			number %= divisor;
+			_put_char((n / divisor) + '0');
+			n %= divisor;
 			count++;
 			}
 	}
