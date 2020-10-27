@@ -13,10 +13,7 @@
  */
 int helper(const char *format, va_list list, sf types[])
 {
-	int i = 0;
-	int j = 0;
-	int flag = 0;
-	int count = 0;
+	int i = 0, j = 0, flag = 0, count = 0;
 
 	while (format[i] != '\0' && format)
 	{
