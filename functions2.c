@@ -23,15 +23,15 @@ int rot13(va_list list)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; alpha[j] != '\0'; j++)
+		for (j = 0; j <= 52; j++)
 		{
-			if (str[i] == alpha[j])
+			if (str[i] == str[j])
 			{
 				_put_char(rot[j]);
 				break;
 			}
 		}
-		if(j == '\0')
+		if(j == 53)
 		{
 			_put_char(str[i]);
 		}
