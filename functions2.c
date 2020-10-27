@@ -31,10 +31,10 @@ int rot13(va_list list)
 				break;
 			}
 		}
-		if(j == 53)
+		if(j == '\0')
 		{
 			_put_char(str[i]);
-	}
+		}
 	}
 	return (i);
 }
