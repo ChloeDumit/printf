@@ -25,7 +25,7 @@ int rot13(va_list list)
 	{
 		for (j = 0; j <= 52; j++)
 		{
-			if (str[i] == str[j])
+			if (str[i] == alpha[j])
 			{
 				_put_char(rot[j]);
 				break;
