@@ -5,36 +5,19 @@
 #include <stdarg.h>
 #include "holberton.h"
 /**
- *_printf - prints format
+ *helper - helper
  *@format: format
+ *@list: list
+ *@types: types
  *Return: print
  */
-int _printf(const char *format, ...)
+int helper(const char *format, va_list list, sf types[])
 {
-	sf types[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_percent},
-		{"i", print_integer},
-		{"d", print_integer},
-		{NULL, NULL}
-	};
-
-	va_list list;
 	int i = 0;
 	int j = 0;
 	int flag = 0;
 	int count = 0;
 
-	va_start(list, format);
-	if (!format)
-	{
-		return (-1);
-	}
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-	{
-		return (-1);
-	}
 	while (format[i] != '\0' && format)
 	{
 		flag = 0;
@@ -69,4 +52,36 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	return (count);
+}
+
+/**
+ *_printf - prints format
+ *@format: format
+ *Return: print
+ */
+int _printf(const char *format, ...)
+{
+		sf types[] = {
+			{"c", print_char},
+			{"s", print_string},
+			{"%", print_percent},
+			{"i", print_integer},
+			{"d", print_integer},
+			{NULL, NULL}
+		};
+	int total = 0;
+	va_list list;
+
+	va_start(list, format);
+	if (!format)
+	{
+		return (-1);
+	}
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	{
+		return (-1);
+	}
+	total = helper(format, list, types);
+	va_end(list);
+	return (total);
 }

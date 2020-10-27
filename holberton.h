@@ -27,5 +27,5 @@ int _put_char(char c);
 int _printf(const char *format, ...);
 int _strlen(char *s);
 char *convert(unsigned int num, int base);
-
+int helper(const char *format, va_list list, sf types[]);
 #endif
