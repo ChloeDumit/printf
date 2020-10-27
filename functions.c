@@ -76,33 +76,33 @@ int _strlen(char *s)
  */
 int print_integer(va_list list)
 {
-  int i, div, len;
-  unsigned int num;
+	int i, div, len;
+	unsigned int num;
 
-  i = va_arg(list, int);
-  div = 1;
-  len = 0;
-  if (i < 0)
-    {
-      len += _put_char('-');
-      num = i * -1;
-    }
-  else
-    {
-      num = i;
-    }
+	i = va_arg(list, int);
+	div = 1;
+	len = 0;
+	if (i < 0)
+	{
+		len += _put_char('-');
+		num = i * -1;
+	}
+	else
+	{
+		num = i;
+	}
 
-  for (; num / div > 9;)
-    {
-      div *= 10;
-    }
+	for (; num / div > 9;)
+	{
+		div *= 10;
+	}
 
-  for (; div != 0;)
-    {
-      len += _put_char('0' + (num / div));
-      num %= div;
-      div /= 10;
-    }
+	for (; div != 0;)
+	{
+		len += _put_char('0' + (num / div));
+		num %= div;
+		div /= 10;
+	}
 
-  return (len);
+	return (len);
 }
