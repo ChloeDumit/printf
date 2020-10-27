@@ -64,6 +64,7 @@ int _printf(const char *format, ...)
 			{"%", print_percent},
 			{"i", print_integer},
 			{"d", print_integer},
+			{"R", rot13},
 			{NULL, NULL}
 		};
 	int total = 0;

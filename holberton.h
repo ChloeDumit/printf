@@ -28,4 +28,7 @@ int _printf(const char *format, ...);
 int _strlen(char *s);
 char *convert(unsigned int num, int base);
 int helper(const char *format, va_list list, sf types[]);
+int rot13(va_list list);
+
+int rot13b(int c, int basis);
 #endif
